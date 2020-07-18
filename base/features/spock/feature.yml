@@ -1,4 +1,8 @@
 description: Adds support for the Spock testing framework
+features:
+  excludes:
+    - junit
+    - kotlintest
 build:
     plugins:
     - groovy
@@ -10,3 +14,7 @@ dependencies:
         module: groovy-all
   - scope: testCompile
     coords: io.micronaut:micronaut-inject-groovy
+  - scope: testCompile
+    coords: io.micronaut.test:micronaut-test-spock
+  - scope: testCompile
+    coords: io.micronaut.test:micronaut-test-junit5

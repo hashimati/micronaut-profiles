@@ -1,0 +1,8 @@
+description: Adds support for Kubernetes
+features:
+    dependent:
+      - jib
+      - management
+dependencies:
+  - scope: implementation
+    coords: io.micronaut.kubernetes:micronaut-kubernetes-discovery-client

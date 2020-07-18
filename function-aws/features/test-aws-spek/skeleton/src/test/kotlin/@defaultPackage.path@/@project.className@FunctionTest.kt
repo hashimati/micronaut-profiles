@@ -15,7 +15,12 @@ class @project.className@FunctionTest: Spek({
         val client = server.applicationContext.getBean(@project.className@Client::class.java)
 
         it("should return '@project.name@'") {
-            assertEquals(client.index().blockingGet(), "@project.name@")
+            val body = @project.className@()
+            body.name = "@project.name@"
+            assertEquals(
+                "@project.name@", 
+                client.apply(body).blockingGet().name
+            )
         }
 
         afterGroup {

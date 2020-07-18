@@ -9,12 +9,17 @@ features:
             - feature: java
               priority: 2
     required:
+      - application
       - picocli
+      - logback
 dependencies:
-- scope: compile
+- scope: implementation
   coords: io.micronaut:micronaut-runtime
 skeleton:
     executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
+    excludes:
+      - 'src/main/**/Application.*'
 jvmArgs:
-    - -noverify
     - -XX:TieredStopAtLevel=1
+    - -Dcom.sun.management.jmxremote
+mainClassName: "@defaultPackage@.@project.className@Command"

@@ -10,14 +10,17 @@ features:
               priority: 2
     required:
       - annotation-api
+      - application
+      - logback
 build:
     plugins:
-        - com.google.protobuf:0.8.5    
+        - com.google.protobuf:0.8.10
 skeleton:
     executable: ["**/gradlew*", "**/mnw*", "**/mvnw*"]
 jvmArgs:
-  - -noverify
   - -XX:TieredStopAtLevel=1
+  - -Dcom.sun.management.jmxremote
 dependencies:
-  - scope: compile
+  - scope: implementation
     coords: io.micronaut.grpc:micronaut-grpc-runtime
+mainClassName: "@defaultPackage@.Application"

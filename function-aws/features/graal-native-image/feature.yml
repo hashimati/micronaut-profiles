@@ -1,0 +1,6 @@
+description: Allows Building a GraalVM Native Image for AWS Lambda function
+dependencies:
+  - scope: annotationProcessor
+    coords: io.micronaut:micronaut-graal
+  - scope: compileOnly
+    coords: org.graalvm.nativeimage:svm

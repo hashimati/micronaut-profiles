@@ -1,5 +1,5 @@
 plugins {
-@buildDependencies@	
+@buildDependencies@
 }
 
 @buildPlugins@
@@ -11,18 +11,13 @@ repositories {
 @repositories@
 }
 
-dependencyManagement {
-    imports {
-        mavenBom 'io.micronaut:micronaut-bom:@version@'
-    }
+configurations {
+    // for dependencies that are needed for development only
+    developmentOnly 
 }
 
 dependencies {
 @dependencies@
 }
 
-shadowJar {
-    mergeServiceFiles()
-}
-
-run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1')
+test.classpath += configurations.developmentOnly
